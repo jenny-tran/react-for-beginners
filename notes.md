@@ -7,7 +7,7 @@
 - Module Bundler - Webpack
 
 To start:
-- `npm start`
+- `npm start` or `npm run watch` to run everything concurrently
 - Choose mounting point, e.g:  `render(<Root/>, document.querySelector('#main'));` means that main will be the mounting point.
 
 ###Components
@@ -239,3 +239,12 @@ Examples: `componentWillMount()` & `componentWillUnmount()`
     // Fetch:
     localStorage.getItem();
     ```
+
+###Bi-directional Data Flow and Live State Editing
+In React, if you set a value on a form field, a `onChange()` method must be provided also.
+
+###Removing Items from State
+- Set value to `null` if item is linked to Firebase
+- If not, delete can be used `delete order[key];`.
+
+###Animations
