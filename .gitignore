@@ -1,4 +1,5 @@
 node_modules/
-working-environment/node_modules/
+catch
 *.zip
 .DS_Store
+catch-of-the-day/src/base.js
