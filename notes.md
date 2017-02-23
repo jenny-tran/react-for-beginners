@@ -7,8 +7,8 @@
 - Module Bundler - Webpack
 
 To start:
-- `npm start` or `npm run watch` to run everything concurrently
-- Choose mounting point, e.g:  `render(<Root/>, document.querySelector('#main'));` means that main will be the mounting point.
+- `npm start` to start autoreload or `npm run watch` to run everything concurrently
+- Choose mounting point, e.g:  `render(<Root/>, document.querySelector('#main'));` means that `main` will be the mounting point.
 
 ###Components
 - Reusable piece of your website
@@ -20,12 +20,12 @@ To start:
 
 ###JSX
 - Must only return one parent element
-- Self-close tags, e.g. `<img />`, `<hr />`, `<br />`
+- Self-closing tags, e.g. `<img />`, `<hr />`, `<br />`
 - To add a comment, `{ /* Hello */ }`
-- Do not put the comment on the top of what is about to be returned. Either put it outside the return, or inside the parent container.
+- **NOTE:** Do not put the comment on the top of what is about to be returned. Either put it outside the return, or inside the parent container.
 
 ###CSS in React
-Can be a different number of ways
+- Can be a different number of ways
 - Can just import the stylesheet as a whole - `import './css/style.css';`
 
 ###Getting Data to import into component
@@ -39,7 +39,7 @@ Can be a different number of ways
 
 ###Stateless Functional Components
 - When the component only needs to render out HTML, i.e. you don't need other methods, it doesn't make sense to use a react component.
-- Convert to a Stateless Functional Component, by saving it to a variable and passing through an argument to obtain any props set on component.
+- Convert to a Stateless Functional Component by saving it to a variable and passing through an argument to obtain any props set on component.
     ```
     // BEST PRACTISE
     const Header = (props) => {
@@ -49,8 +49,8 @@ Can be a different number of ways
 
 ###Routing
 Using react router - `import { BrowserRouter, Match, Miss } from 'react-router'`.
-- Match: render components that match the pattern
-- Miss: for any pages that don't follow a pattern, render component.
+- **Match**: render components that match the pattern
+- **Miss**: for any pages that don't follow a pattern, render component.
     ```
     const Root = () => {
         return (
@@ -65,6 +65,7 @@ Using react router - `import { BrowserRouter, Match, Miss } from 'react-router'`
     }
     ```
 
+
 ###Working with React Events
 - Synthetic event works exactly the same as JS events.
 - Events are done inline.
@@ -77,7 +78,7 @@ Using react router - `import { BrowserRouter, Match, Miss } from 'react-router'`
     // This can then be referenced with $r.storeInput in the console.
     ```
 When creating additional methods to components, these methods do not have access to `this`. To bind the methods to the Class:
-- Use a constructor Function
+- Use a constructor Function  
     ```
     constructor() {
         super();
@@ -89,7 +90,7 @@ When creating additional methods to components, these methods do not have access
 
 ###React Router
 - Surface the router in the method using context.
-- By using context, this'll declare something at a top level, and make it available globally (resist from doing this as much as possible).
+- By using context, this'll declare something at a top level, and make it available globally (resist from doing this as much as possible).  
     ```
     StorePicker.contextTypes = {
         router: React.PropTypes.object
@@ -214,13 +215,13 @@ renderOrder(key) {
 ```
 
 ###Persisting our State with Firebase
-In order to save the data even on page reload, a backend service is required.
+In order to save the data even on page reload, a backend service is required.  
 Firebase is a product from Google:
 - Uses websockets
 - Syncs data to Firebase
 - No matter how many people are editing at once, it'll sync from each computer.
 
-Setup:
+####Setting up Firebase:
 - Sign up to Firebase
 - Add a new module to connect to Firebase
 - In Firebase, go to `Overview` > `Add Firebase to your web app`. This will spit out config details, which can then be used to connect the app to Firebase
@@ -231,20 +232,21 @@ Examples: `componentWillMount()` & `componentWillUnmount()`
 
 ###Localstorage
 - Storing the data in the Browser
-- Accessible in the browser through `Console` > `Application` > `Local Storage` > Domain
+- Accessible in the browser through `Console` > `Application` > `Local Storage`
     ```
     // Setup:
-    localStorage.setItem();
+    localStorage.setItem(key, value);
 
     // Fetch:
-    localStorage.getItem();
+    localStorage.getItem(key);
     ```
 
 ###Bi-directional Data Flow and Live State Editing
-In React, if you set a value on a form field, a `onChange()` method must be provided also.
+In React, if you set a value on a form field, an `onChange()` method must be provided also.
 
 ###Removing Items from State
 - Set value to `null` if item is linked to Firebase
-- If not, delete can be used `delete order[key];`.
+- If not, delete can be used `delete order[key]`.
 
 ###Animations
+- `import CSSTransitionGroup from 'react-addons-css-transition-group';`
