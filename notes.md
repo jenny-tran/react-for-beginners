@@ -407,5 +407,14 @@ Setting it up in react using base authentication:
     Github starts there path from `github.io/[username]/[repo]/etc...`.  
     In order to get it to start the homepage from a diff point, we can add this to `package.json`:  
     `"homepage": "https://jenny-tran.github.io/catch-of-the-day"`
+2. Add root folder to `BrowserRouter`:
+    ```
+    // Will only work with Github
+    const repo = `/${window.location.pathname.split('/')[1]}`;
+
+    <BrowserRouter basename={repo}>
+    ```
+3. On Github, when a user refreshes, it'll redirect to a 404. A workaround will be to copy index.html to be 404 `cp index.html 404.html`.
 
 ####3. Deploying to an Apache Server
+1. If you're deploying to a subdirectory:
