@@ -7,8 +7,12 @@ import App from './components/App';
 import StorePicker from './components/StorePicker';
 import NotFound from './components/NotFound';
 
+// GITHUB DEPLOYMENT
 // const repo = `/${window.location.pathname.split('/')[1]}`;
-// basename={repo}
+// <BrowserRouter basename={repo}>
+
+// APACHE DEPLOYMENT (subdomain)
+// <BrowserRouter basename="/catchoftheday">
 
 const Root = () => {
     return (

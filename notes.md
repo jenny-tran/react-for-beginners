@@ -417,4 +417,17 @@ Setting it up in react using base authentication:
 3. On Github, when a user refreshes, it'll redirect to a 404. A workaround will be to copy index.html to be 404 `cp index.html 404.html`.
 
 ####3. Deploying to an Apache Server
-1. If you're deploying to a subdirectory:
+Use a FTP Client - Cyberduck or Firezilla
+1. If you're deploying to a subdomain (e.g. http://catchoftheday.jennytran.com.au):
+    ```
+    <BrowserRouter basename="/catchoftheday">
+    ```
+2. Server is not doing the routing because it's a client-side app.
+    Create a `.htaccess` file in the root folder for the Apache Server with the following rules:
+    ```
+    RewriteBase /
+    RewriteRule ^index\.html$ - [L]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . /index.html [L]
+    ```
